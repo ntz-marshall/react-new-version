@@ -37,7 +37,9 @@ class Form extends Component {
 				<label htmlFor="preco">Preço</label>
 				<input id="preco" type="text" name="preco" value={preco} onChange={this.escutadorDeInput}/>
 
-				<button onClick={this.submitForm} type="button">Salvar</button>
+				<button onClick={this.submitForm} type="button" className="btn waves-effect waves-light indigo lighten-2">Salvar
+				<i class="tiny material-icons right">send</i>
+				</button>
 			</form>
 		)
 	}

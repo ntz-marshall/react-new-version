@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
-import './App.css'
+import 'materialize-css/dist/css/materialize.min.css'
 
+import Header from './Header'
 import Table from './Table'
 import Form from './Form'
 
@@ -11,27 +12,27 @@ class App extends Component {
 					{
 							nome: 'Paulo',
 							livro: 'React',
-							preco: '780'
+							preco: 'R$780,00'
 					},
 					{
 							nome: 'Daniel',
 							livro: 'Java',
-							preco: '920'
+							preco: 'R$920,00'
 					},
 					{
 							nome: 'Marcos',
 							livro: 'Design',
-							preco: '150'
+							preco: 'R$150,00'
 					},
 					{
 							nome: 'Bruno',
 							livro: 'DevOps',
-							preco: '100'
+							preco: 'R$100,00'
 					},
 					{
 							nome: 'Nico',
 							livro: 'JavaScript',
-							preco: '250'
+							preco: 'R$250,00'
 					}
 			],
 	}
@@ -55,8 +56,10 @@ class App extends Component {
 	render() {
 		return (
 				<Fragment>
-						<Table autores = { this.state.autores } removeAutor = { this.removeAutor } />
-						<Form escutadorDeSubmit={this.escutadorDeSubmit}/>
+					<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+					<Header />
+					<Table autores = { this.state.autores } removeAutor = { this.removeAutor } />
+					<Form escutadorDeSubmit={this.escutadorDeSubmit}/>
 				</Fragment>
 		)
 	}
