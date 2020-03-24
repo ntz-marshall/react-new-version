@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import 'materialize-css/dist/css/materialize.min.css'
+import './App.css'
 
 import Header from './Header'
 import Table from './Table'
@@ -53,13 +54,15 @@ class App extends Component {
 		this.setState({ autores:[...this.state.autores, autor] })
 	}
 
-	render() {
+	render() {		
 		return (
 				<Fragment>
 					<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
 					<Header />
+					<div className="container mb-10">
 					<Table autores = { this.state.autores } removeAutor = { this.removeAutor } />
 					<Form escutadorDeSubmit={this.escutadorDeSubmit}/>
+					</div>
 				</Fragment>
 		)
 	}
