@@ -1,31 +1,55 @@
 import React, {Component} from 'react'
+import FormValidator from './FormValidator'
 
 class Form extends Component {
 
 	constructor(props) {
+
 		super(props)
+
+		this.validador = new FormValidator([
+			{
+			campo:'nome',
+			metodo: 'isEmpty',
+			validoQuando: false,
+			mensagem: 'Entre com um nome'
+			},
+			{
+
+			}
+		])
+
 		this.stateInicial = {
 			nome:'',
 			livro:'',
 			preco:'',
 		}
+
 		this.state = this.stateInicial
 	}
 
 	escutadorDeInput = event => {
+
 		const {name,value} = event.target
+		
 		this.setState({
 			[name] : value
 		})
 	}
 
 	submitForm = () =>{
-		this.props.escutadorDeSubmit(this.state)
-		this.setState(this.stateInicial)
+
+		if (this.validador.valida(this.state)) {
+
+			this.props.escutadorDeSubmit(this.state)
+			this.setState(this.stateInicial)
+		}
 	}
 
 	render(){
+
 		const {nome,livro,preco} = this.state
+
 		return(
 			<form>
 				
@@ -45,7 +69,7 @@ class Form extends Component {
 				</div>
 
 				<button onClick={this.submitForm} type="button" className="btn waves-effect waves-light indigo lighten-2">Salvar
-				<i class="tiny material-icons right">send</i>
+				<i className="tiny material-icons right">send</i>
 				</button>
 
 			</form>
